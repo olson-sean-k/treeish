@@ -1,0 +1,45 @@
+[package]
+name = "treeish"
+version = "0.0.0"
+authors = ["Sean Olson <olson.sean.k@gmail.com>"]
+description = ""
+repository = "https://github.com/olson-sean-k/treeish"
+readme = "README.md"
+edition = "2021"
+rust-version = "1.64.0"
+license = "MIT"
+keywords = [
+    "glob",
+    "path",
+    "pattern"
+]
+categories = ["filesystem"]
+
+[features]
+default = []
+miette = [
+    "dep:miette",
+    "dep:tardar",
+    "wax/miette"
+]
+
+[dependencies]
+nom = "^7.0.0"
+thiserror = "^1.0.0"
+
+[dependencies.miette]
+version = "^5.10.0"
+optional = true
+default-features = false
+
+[dependencies.tardar]
+version = "^0.1.0"
+optional = true
+
+[dependencies.wax]
+version = "^0.6.0"
+default-features = false
+features = ["walk"]
+
+[workspace]
+members = ["examples/findish"]
